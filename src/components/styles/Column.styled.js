@@ -12,7 +12,7 @@ export const StyledColumn = styled.div`
         height: 90px;
         border-bottom: 1px solid ${theme.colors.darkBorders};
         border-right: 1px solid ${ (props) => props.highlight ? theme.colors.navbarBg : theme.colors.borders };;
-        padding: 12px;
+        padding: 12px 16px 12px 12px;
         background-color: ${ (props) => props.first ? theme.colors.darkGrey : theme.colors.navbarBg }; //
         display: flex;
         justify-content: ${ (props) => props.first ? 'center' : 'left' };
@@ -37,6 +37,12 @@ export const StyledColumn = styled.div`
     div:nth-child(4),
     div:nth-child(5),
     div:nth-child(6) {
+        &.img {
+            background-image: url('bode_img.jpg');
+            background-repeat: no-repeat;
+            background-position: bottom;
+            opacity: ${ (props) => props.highlight ? '1' + theme.colors.primary : '.5' };
+        }
         &.marked {
             position: relative;
             &::after {
@@ -51,7 +57,6 @@ export const StyledColumn = styled.div`
             }
         }
     }
-
     div:nth-child(7),
     div:nth-child(8) {
         height: 35px;
@@ -66,6 +71,7 @@ export const StyledColumn = styled.div`
         padding: 4px;
         img {
             height: 24px;
+            position: relative;
         }
         img:nth-child(2) {
             display: none;
@@ -73,10 +79,13 @@ export const StyledColumn = styled.div`
             height: 12px;
         }
         &.active {
-            img {
+            position: relative;
+            img, img::after {
                 filter: ${theme.colors.primaryFilter};
             }
             img:nth-child(2) {
+                position: absolute;
+                right: 20px;
                 display: block;
             }
         }

@@ -47,7 +47,7 @@ function Main() {
 
                 <StyledColumn onClick={toggleCell} >
                     <div>Day {dayNumber()}</div>
-                    <div>Bod-ë shake</div>
+                    <div class="img">Bod-ë shake</div>
                     <div>Ham and Swiss Roll ups</div>
                     <div>Turkey melt</div>
                     <div>Bod-ë burn with Mozarella and Tomato Slices</div>
@@ -59,11 +59,11 @@ function Main() {
 
                 <StyledColumn onClick={toggleCell} highlight={true}>
                     <div>Day {dayNumber()}</div>
-                    <div>Bod-ë shake</div>
+                    <div class="img">Bod-ë shake</div>
                     <div>Ham and Swiss Roll ups</div>
                     <div>Turkey melt</div>
                     <div>Bod-ë burn with Mozarella and Tomato Slices</div>
-                    <div>Turkey melt</div>
+                    <div class="img">Bod-ë shake</div>
                     <div>Low-Carb</div>
                     {weight('')}
                 </StyledColumn>
@@ -71,7 +71,7 @@ function Main() {
 
                 <StyledColumn onClick={toggleCell}>
                     <div>Day {dayNumber()}</div>
-                    <div>Bod-ë shake</div>
+                    <div class="img">Bod-ë shake</div>
                     <div>Turkey melt</div>
                     <div>Bod-ë burn with Mozarella and Tomato Slices</div>
                     <div>Turkey melt</div>
@@ -83,7 +83,7 @@ function Main() {
 
                 <StyledColumn onClick={toggleCell}>
                     <div>Day {dayNumber()}</div>
-                    <div>Bod-ë shake</div>
+                    <div class="img">Bod-ë shake</div>
                     <div>Ham and Swiss Roll ups</div>
                     <div>Turkey melt</div>
                     <div>Bod-ë burn and Whole-Wheat Englich Muffin with Butter Spray</div>
@@ -95,7 +95,7 @@ function Main() {
 
                 <StyledColumn onClick={toggleCell}>
                     <div>Day {dayNumber()}</div>
-                    <div>Bod-ë shake</div>
+                    <div class="img">Bod-ë shake</div>
                     <div>Turkey melt</div>
                     <div>Ham and Swiss Roll ups</div>
                     <div>Bod-ë burn with Mozarella and Tomato Slices</div>
@@ -107,10 +107,10 @@ function Main() {
 
                 <StyledColumn onClick={toggleCell}>
                     <div>Day {dayNumber()}</div>
-                    <div>Bod-ë shake</div>
+                    <div class="img">Bod-ë shake</div>
                     <div>Turkey melt</div>
                     <div>Ham and Swiss Roll ups</div>
-                    <div>Turkey melt</div>
+                    <div class="img">Bod-ë shake</div>
                     <div>Bod-ë burn with Mozarella and Tomato Slices</div>
                     <div>Low-Carb</div>
                     {weight('')}

@@ -17,6 +17,10 @@ export const StyledColumn = styled.div`
         display: flex;
         justify-content: ${ (props) => props.first ? 'center' : 'left' };
         ${ (props) => props.first ? 'align-items: center' : '' };
+        color: ${ (props) => props.highlight ? theme.colors.fontActive : theme.colors.font};
+        b {
+            margin-right: 4px;
+        }
     }
     div:nth-child(1) {
         height: ${ (props) => props.highlight ? '48px' : '50px' };
@@ -28,6 +32,26 @@ export const StyledColumn = styled.div`
         align-items: center;
         font-weight: 600;
     }
+    div:nth-child(2),
+    div:nth-child(3),
+    div:nth-child(4),
+    div:nth-child(5),
+    div:nth-child(6) {
+        &.marked {
+            position: relative;
+            &::after {
+                content: url('tick-circle.svg');
+                position: absolute;
+                display: block;
+                top: 8px;
+                right: 4px;
+                width: 16px;
+                height: 16px;
+                filter: ${theme.colors.primaryFilter};
+            }
+        }
+    }
+
     div:nth-child(7),
     div:nth-child(8) {
         height: 35px;
@@ -39,13 +63,26 @@ export const StyledColumn = styled.div`
         text-transform: uppercase;
     }
     div:nth-child(8) {
+        padding: 4px;
         img {
-            height: 16px;
+            height: 24px;
         }
-        &.active img {
-            filter: ${theme.colors.primaryFilter};
+        img:nth-child(2) {
+            display: none;
+            margin: 4px 8px;
+            height: 12px;
+        }
+        &.active {
+            img {
+                filter: ${theme.colors.primaryFilter};
+            }
+            img:nth-child(2) {
+                display: block;
+            }
         }
     }
+
+    /* THE LAST COLUMN */
     div.sunday-guilt-free {
         height: calc(5 * 90px);
         padding: 0;

@@ -10,6 +10,27 @@ function Main() {
         return (store.currentWeek - 1) * 7 + ++currDay;
     }
 
+    const toggleWeight = e => {
+        let parent = e.currentTarget.closest('div');
+        parent.classList[parent.classList.contains('active') ? 'remove' : 'add']('active');
+    }
+
+    const weight = (cls) => {
+        return (
+            <div className={cls}
+                onClick={toggleWeight}
+            >
+                <img src="weight.svg" alt="Weight icon" />
+                <img src="tick.svg" alt="Tick icon" />
+            </div>
+        )
+    }
+
+    const toggleCell = e => {
+        let current = e.target;
+        current.classList[current.classList.contains('marked') ? 'remove' : 'add']('marked');
+    }
+
     return (
             <StyledColumnSet>
                 <StyledColumn width="85px" first={true}>
@@ -24,7 +45,7 @@ function Main() {
                 </StyledColumn>
 
 
-                <StyledColumn>
+                <StyledColumn onClick={toggleCell} >
                     <div>Day {dayNumber()}</div>
                     <div>Bod-ë shake</div>
                     <div>Ham and Swiss Roll ups</div>
@@ -32,13 +53,11 @@ function Main() {
                     <div>Bod-ë burn with Mozarella and Tomato Slices</div>
                     <div>Turkey melt</div>
                     <div>Low-Carb</div>
-                    <div>
-                        <img src="weight.svg" alt="Weight icon"></img>
-                    </div>
+                    {weight('active')}
                 </StyledColumn>
 
 
-                <StyledColumn highlight={true}>
+                <StyledColumn onClick={toggleCell} highlight={true}>
                     <div>Day {dayNumber()}</div>
                     <div>Bod-ë shake</div>
                     <div>Ham and Swiss Roll ups</div>
@@ -46,13 +65,11 @@ function Main() {
                     <div>Bod-ë burn with Mozarella and Tomato Slices</div>
                     <div>Turkey melt</div>
                     <div>Low-Carb</div>
-                    <div>
-                        <img src="weight.svg" alt="Weight icon"></img>
-                    </div>
+                    {weight('')}
                 </StyledColumn>
 
 
-                <StyledColumn>
+                <StyledColumn onClick={toggleCell}>
                     <div>Day {dayNumber()}</div>
                     <div>Bod-ë shake</div>
                     <div>Turkey melt</div>
@@ -60,13 +77,11 @@ function Main() {
                     <div>Turkey melt</div>
                     <div>Ham and Swiss Roll ups</div>
                     <div>Low-Carb</div>
-                    <div>
-                        <img src="weight.svg" alt="Weight icon"></img>
-                    </div>
+                    {weight('')}
                 </StyledColumn>
 
 
-                <StyledColumn>
+                <StyledColumn onClick={toggleCell}>
                     <div>Day {dayNumber()}</div>
                     <div>Bod-ë shake</div>
                     <div>Ham and Swiss Roll ups</div>
@@ -74,13 +89,11 @@ function Main() {
                     <div>Bod-ë burn and Whole-Wheat Englich Muffin with Butter Spray</div>
                     <div>Turkey melt</div>
                     <div>Hi-Carb</div>
-                    <div>
-                        <img src="weight.svg" alt="Weight icon"></img>
-                    </div>
+                    {weight('')}
                 </StyledColumn>
 
 
-                <StyledColumn>
+                <StyledColumn onClick={toggleCell}>
                     <div>Day {dayNumber()}</div>
                     <div>Bod-ë shake</div>
                     <div>Turkey melt</div>
@@ -88,13 +101,11 @@ function Main() {
                     <div>Bod-ë burn with Mozarella and Tomato Slices</div>
                     <div>Turkey melt</div>
                     <div>Hi-Carb</div>
-                    <div>
-                        <img src="weight.svg" alt="Weight icon"></img>
-                    </div>
+                    {weight('')}
                 </StyledColumn>
 
 
-                <StyledColumn>
+                <StyledColumn onClick={toggleCell}>
                     <div>Day {dayNumber()}</div>
                     <div>Bod-ë shake</div>
                     <div>Turkey melt</div>
@@ -102,19 +113,16 @@ function Main() {
                     <div>Turkey melt</div>
                     <div>Bod-ë burn with Mozarella and Tomato Slices</div>
                     <div>Low-Carb</div>
-                    <div class="active">
-                        <img src="weight.svg" alt="Weight icon"></img>
-                    </div>
+                    {weight('')}
                 </StyledColumn>
 
-                <StyledColumn sunday={true}>
+                <StyledColumn onClick={toggleCell} sunday={true}>
                     <div>Day {dayNumber()}</div>
                     <div className="sunday-guilt-free">
                         <span className="rotate">Guilt-free day</span>
                     </div>
                     <div className="sunday-print">
                         <img src="printer.svg" alt="Printer icon"></img>
-                        {/* <svg href="printer.svg" alt="Printer icon"/> */}
                         <span>Print</span>
                     </div>
                 </StyledColumn>

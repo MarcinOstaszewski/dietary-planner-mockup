@@ -32,6 +32,7 @@ function Header() {
             <div className="header-options">
                 <StyledInfoText>Select your protein options</StyledInfoText>
                 <ul className="options-display">
+                    {console.log(store.proteinOptions)}
                     <li className="options vegetables"><img src="carrot.svg" alt="Icon of a carrot"></img></li>
                     <li className="options cheese"><img src="cheese.svg" alt="Icon of a cheese"></img></li>
                     <li className="options meat"><img src="meat.svg" alt="Icon of a meat"></img></li>

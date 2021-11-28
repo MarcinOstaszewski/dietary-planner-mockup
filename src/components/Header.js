@@ -2,7 +2,10 @@ import { StyledHeader } from './styles/Header.styled';
 import  { StyledInfoText } from './styles/InfoText.styled'
 import ProgressDots from './ProgressDots';
 
-export default function Header() {
+import { observer } from 'mobx-react';
+import store from '../store/store';
+
+function Header() {
     return (
         <StyledHeader>
             <div className="header-progress">
@@ -12,11 +15,15 @@ export default function Header() {
 
 
             <div className="header-slider">
-                <div className="slider-button prev">
+                <div className={'slider-button prev' + (store.currentWeek <= 1 ? ' disabled' : '') }
+                    onClick={ e => store.setCurrentWeek(-1) }
+                >
                     <img src="chevron-right.svg" alt="Left chevron"></img>
                 </div>
-                <span className="slider-title">Week 7</span>
-                <div className="slider-button next">
+                <span className="slider-title">Week {store.currentWeek}</span>
+                <div className={'slider-button next' + (store.currentWeek >= store.maxWeek ? ' disabled' : '') }
+                    onClick={ e => store.setCurrentWeek(1) }
+                >
                     <img src="chevron-right.svg" alt="Right chevron"></img>
                 </div>
             </div>
@@ -35,3 +42,5 @@ export default function Header() {
         </StyledHeader>
     )
 }
+
+export default observer(Header);

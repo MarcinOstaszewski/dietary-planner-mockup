@@ -27,6 +27,7 @@ export const StyledHeader = styled.header`
             border: 1px solid ${theme.colors.borders};
             border-radius: 4px;
             background-color: ${theme.colors.navbarBg};
+            cursor: pointer;
             img {
                 width: 20px;
                 height: 42px;
@@ -38,6 +39,10 @@ export const StyledHeader = styled.header`
             }
             &:hover {
                 background-color: ${theme.colors.primary}11;
+            }
+            &.disabled, &.disabled img {
+                pointer-events: none;
+                opacity: .4;
             }
         }
         .slider-title {
@@ -69,6 +74,5 @@ export const StyledHeader = styled.header`
                 }
             }
         }
-
     }
 `

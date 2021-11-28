@@ -66,11 +66,12 @@ export const StyledHeader = styled.header`
             &.active {
                 img {
                     opacity: 1;
+                    filter: ${theme.colors.primaryFilter};
                 }
             }
             &:hover {
                 img {
-                    opacity: .5;
+                    opacity: .6;
                 }
             }
         }

@@ -6,6 +6,27 @@ import { observer } from 'mobx-react';
 import store from '../store/store';
 
 function Header() {
+
+    const toggleProteinOptions = e => {
+        const li = e.currentTarget;
+        li.classList[li.classList.contains('active') ? 'remove' : 'add']('active');
+    }
+
+    const createProteinOptions = () => {
+        return (
+            Object.keys(store.proteinOptions).map( opt => {
+                let cls = store.proteinOptions[opt] ? ' active' : '';
+                return (
+                    <li className={`options ${opt + cls}`} key={`options ${opt}`}
+                        onClick={toggleProteinOptions}
+                    >
+                        <img src={`${opt}.svg`} alt={`${opt} icon`}></img>
+                    </li>
+                )}
+            )
+        );
+    }
+
     return (
         <StyledHeader>
             <div className="header-progress">
@@ -32,12 +53,7 @@ function Header() {
             <div className="header-options">
                 <StyledInfoText>Select your protein options</StyledInfoText>
                 <ul className="options-display">
-                    {console.log(store.proteinOptions)}
-                    <li className="options vegetables"><img src="carrot.svg" alt="Icon of a carrot"></img></li>
-                    <li className="options cheese"><img src="cheese.svg" alt="Icon of a cheese"></img></li>
-                    <li className="options meat"><img src="meat.svg" alt="Icon of a meat"></img></li>
-                    <li className="options fish"><img src="fish.svg" alt="Icon of a fish"></img></li>
-                    <li className="options chicken"><img src="chicken.svg" alt="Icon of a chicken"></img></li>
+                    {createProteinOptions()}
                 </ul>
             </div>
         </StyledHeader>

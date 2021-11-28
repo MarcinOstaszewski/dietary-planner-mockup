@@ -1,7 +1,15 @@
 import { StyledColumnSet } from './styles/ColumnSet.styled';
 import { StyledColumn } from './styles/Column.styled';
 
-export default function Main() {
+import { observer } from 'mobx-react';
+import store from '../store/store';
+
+function Main() {
+    let currDay = 0;
+    const dayNumber = () => {
+        return (store.currentWeek - 1) * 7 + ++currDay;
+    }
+
     return (
             <StyledColumnSet>
                 <StyledColumn width="85px" first={true}>
@@ -17,7 +25,7 @@ export default function Main() {
 
 
                 <StyledColumn>
-                    <div>Day 64</div>
+                    <div>Day {dayNumber()}</div>
                     <div>Bod-ë shake</div>
                     <div>Ham and Swiss Roll ups</div>
                     <div>Turkey melt</div>
@@ -31,7 +39,7 @@ export default function Main() {
 
 
                 <StyledColumn highlight={true}>
-                    <div>Day 65</div>
+                    <div>Day {dayNumber()}</div>
                     <div>Bod-ë shake</div>
                     <div>Ham and Swiss Roll ups</div>
                     <div>Turkey melt</div>
@@ -45,7 +53,7 @@ export default function Main() {
 
 
                 <StyledColumn>
-                    <div>Day 66</div>
+                    <div>Day {dayNumber()}</div>
                     <div>Bod-ë shake</div>
                     <div>Turkey melt</div>
                     <div>Bod-ë burn with Mozarella and Tomato Slices</div>
@@ -59,7 +67,7 @@ export default function Main() {
 
 
                 <StyledColumn>
-                    <div>Day 67</div>
+                    <div>Day {dayNumber()}</div>
                     <div>Bod-ë shake</div>
                     <div>Ham and Swiss Roll ups</div>
                     <div>Turkey melt</div>
@@ -73,7 +81,7 @@ export default function Main() {
 
 
                 <StyledColumn>
-                    <div>Day 68</div>
+                    <div>Day {dayNumber()}</div>
                     <div>Bod-ë shake</div>
                     <div>Turkey melt</div>
                     <div>Ham and Swiss Roll ups</div>
@@ -87,7 +95,7 @@ export default function Main() {
 
 
                 <StyledColumn>
-                    <div>Day 69</div>
+                    <div>Day {dayNumber()}</div>
                     <div>Bod-ë shake</div>
                     <div>Turkey melt</div>
                     <div>Ham and Swiss Roll ups</div>
@@ -100,7 +108,7 @@ export default function Main() {
                 </StyledColumn>
 
                 <StyledColumn sunday={true}>
-                    <div>Day 70</div>
+                    <div>Day {dayNumber()}</div>
                     <div className="sunday-guilt-free">
                         <span className="rotate">Guilt-free day</span>
                     </div>
@@ -113,3 +121,5 @@ export default function Main() {
             </StyledColumnSet>
     );
 }
+
+export default observer(Main);
